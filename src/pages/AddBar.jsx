@@ -191,7 +191,7 @@ export default function AddBar() {
             className="form-input"
             value={primeraImpresion}
             onChange={e => setPrimeraImpresion(e.target.value)}
-            placeholder="¿Qué notaste al llegar?"
+            placeholder="Llegaron las bravas a la mesa... ¿Qué pensas?"
           />
         </div>
 
