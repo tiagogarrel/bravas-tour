@@ -29,7 +29,8 @@ export function AppProvider({ children }) {
       const res = await fetch(`${API_URL}?action=getBars`);
       const data = await res.json();
       if (data.error) throw new Error(data.error);
-      setBars(data);
+      // Normalizar IDs a string — Sheets puede devolver números
+      setBars(data.map(bar => ({ ...bar, id: String(bar.id) })));
     } catch (e) {
       setError(e.message);
     } finally {

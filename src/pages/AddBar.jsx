@@ -17,7 +17,7 @@ export default function AddBar() {
   const [params] = useSearchParams();
   const editId = params.get('edit');
   const isEdit = !!editId;
-  const existingBar = isEdit ? bars.find(b => b.id === editId) : null;
+  const existingBar = isEdit ? bars.find(b => String(b.id) === String(editId)) : null;
 
   // Common fields (only editable when creating a new bar)
   const [barName, setBarName] = useState('');

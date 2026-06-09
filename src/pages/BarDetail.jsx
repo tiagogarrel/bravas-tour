@@ -43,7 +43,7 @@ export default function BarDetail() {
   const { bars, profile } = useApp();
   const navigate = useNavigate();
 
-  const bar = bars.find(b => b.id === id);
+  const bar = bars.find(b => String(b.id) === String(id));
   if (!bar) return <div className="empty-state"><div className="empty-state-emoji">🤔</div><p className="empty-state-text">Bar no encontrado</p></div>;
 
   const photos = [bar.foto_1, bar.foto_2, bar.foto_3].filter(Boolean);

@@ -104,7 +104,8 @@ function addBar(data) {
 function updateBar(data) {
   const sheet = getSheet();
   const ids = sheet.getRange(2, 1, sheet.getLastRow() - 1, 1).getValues().flat();
-  const rowIndex = ids.indexOf(data.id);
+  // Comparar como strings — Sheets puede devolver números aunque se guardó como string
+  const rowIndex = ids.findIndex(id => String(id) === String(data.id));
   if (rowIndex === -1) return { error: 'Bar no encontrado: ' + data.id };
 
   const sheetRow = rowIndex + 2; // +1 por header, +1 por base-1
